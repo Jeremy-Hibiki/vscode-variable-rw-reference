@@ -1,7 +1,17 @@
-import { defineConfigObject } from 'reactive-vscode'
-import * as Meta from './generated/meta'
+import { defineConfigObject, computed } from 'reactive-vscode'
+import * as vscode from 'vscode'
 
-export const config = defineConfigObject<Meta.ScopedConfigKeyTypeMap>(
-  Meta.scopedConfigs.scope,
-  Meta.scopedConfigs.defaults,
-)
+// 直接使用 vscode.workspace.getConfiguration 来获取配置
+export const config = {
+  get autoShowPanel(): boolean {
+    return vscode.workspace.getConfiguration('variableRwReference').get('autoShowPanel', true)
+  },
+  
+  get groupByFile(): boolean {
+    return vscode.workspace.getConfiguration('variableRwReference').get('groupByFile', true)
+  },
+  
+  set groupByFile(value: boolean) {
+    vscode.workspace.getConfiguration('variableRwReference').update('groupByFile', value, vscode.ConfigurationTarget.Global)
+  }
+}
