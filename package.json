@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@10.4.1",
-  "description": "",
+  "description": "VSCode extension to categorize variable references by read/write operations, similar to IntelliJ IDEA's reference viewer",
   "author": "Jeremy Hibiki <JeremyJiang430@outlook.com>",
   "license": "MIT",
   "homepage": "https://github.com/Jeremy-Hibiki/vscode-variable-rw-reference#readme",
@@ -33,11 +33,74 @@
     "onStartupFinished"
   ],
   "contributes": {
-    "commands": [],
+    "commands": [
+      {
+        "command": "variableRwReference.findReferences",
+        "title": "Find References (R/W)",
+        "category": "Variable R/W Reference"
+      },
+      {
+        "command": "variableRwReference.refresh",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "variableRwReference.toggleGrouping",
+        "title": "Toggle Grouping Mode",
+        "icon": "$(list-tree)"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "variableRwReference.findReferences",
+          "when": "editorHasSelection",
+          "group": "navigation@10"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "variableRwReference.refresh",
+          "when": "view == variableRwReference",
+          "group": "navigation"
+        },
+        {
+          "command": "variableRwReference.toggleGrouping",
+          "when": "view == variableRwReference",
+          "group": "navigation"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "variableRwReference",
+          "name": "Variable References (R/W)",
+          "when": "variableRwReference.hasReferences"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "variableRwReference",
+        "contents": "No references found.\n[Find References](command:variableRwReference.findReferences)"
+      }
+    ],
     "configuration": {
       "type": "object",
-      "title": "vscode-variable-rw-reference",
-      "properties": {}
+      "title": "Variable R/W Reference",
+      "properties": {
+        "variableRwReference.autoShowPanel": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically show the references panel when finding references"
+        },
+        "variableRwReference.groupByFile": {
+          "type": "boolean", 
+          "default": true,
+          "description": "Group references by file"
+        }
+      }
     }
   },
   "scripts": {
