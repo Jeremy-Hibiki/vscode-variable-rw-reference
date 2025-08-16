@@ -20,6 +20,9 @@ importers:
       '@types/vscode':
         specifier: ^1.97.0
         version: 1.97.0
+      '@typescript/native-preview':
+        specifier: 7.0.0-dev.20250816.1
+        version: 7.0.0-dev.20250816.1
       '@vscode/vsce':
         specifier: ^3.2.2
         version: 3.2.2
@@ -1046,6 +1049,53 @@ packages:
   '@typescript-eslint/visitor-keys@8.24.0':
     resolution: {integrity: sha512-kArLq83QxGLbuHrTMoOEWO+l2MwsNS2TGISEdx8xgqpkbytB07XmlQyQdNDrCc1ecSqx0cnmhGvpX+VBwqqSkg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@typescript/native-preview-darwin-arm64@7.0.0-dev.20250816.1':
+    resolution: {integrity: sha512-JM+b5qXA1M9G/NFmytUatwEFQSKz1JQDZBsHCLxHbWaGazbg+yJPTzsxKfSz+DW72hyGTldiQqeIdJKwg3G5uQ==}
+    engines: {node: '>=20.6.0'}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@typescript/native-preview-darwin-x64@7.0.0-dev.20250816.1':
+    resolution: {integrity: sha512-jwhb6osHxniK+gv23uSjalfTN2XoMiF7X8eIslIRKQ6ICqxf5k8XtOJY0v2lf/t3HxIQQdG962kDVwiGaN3K6w==}
+    engines: {node: '>=20.6.0'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@typescript/native-preview-linux-arm64@7.0.0-dev.20250816.1':
+    resolution: {integrity: sha512-e9YXa8QJ2kxBE/eIIci0n906crKxw+C9exAoWysjEsShIsXghIyP3BedMMVRhp2ZigjAPD6pa2ibE1R637C60g==}
+    engines: {node: '>=20.6.0'}
+    cpu: [arm64]
+    os: [linux]
+
+  '@typescript/native-preview-linux-arm@7.0.0-dev.20250816.1':
+    resolution: {integrity: sha512-syEtVN8E5oOlTOm7CrE3vgoVveBPRKvBbkfShqzwlmq1mw51MWunwO3yDNB3tk9GC1w1VoISoYpe8xm/hUKqIQ==}
+    engines: {node: '>=20.6.0'}
+    cpu: [arm]
+    os: [linux]
+
+  '@typescript/native-preview-linux-x64@7.0.0-dev.20250816.1':
+    resolution: {integrity: sha512-C1pGpcbR2KwAacOQ9e0pAEZeOIZOZ7+GGxQjFQBYxnFdZfT/AvrCP8rKbZhWUx0ghntskl4BejqhGGC3kTc8Cg==}
+    engines: {node: '>=20.6.0'}
+    cpu: [x64]
+    os: [linux]
+
+  '@typescript/native-preview-win32-arm64@7.0.0-dev.20250816.1':
+    resolution: {integrity: sha512-tHiD2c4/GQQeSl5kbnNMcjFx0JaC3blbKA9oPMH11hrio/eRnHVrvmatLe5Mo4KOuCS5EHgNUhUvhI43TD0lfw==}
+    engines: {node: '>=20.6.0'}
+    cpu: [arm64]
+    os: [win32]
+
+  '@typescript/native-preview-win32-x64@7.0.0-dev.20250816.1':
+    resolution: {integrity: sha512-4Gm8x1fjnPU441faBu9Mgf9xUWC/DTetulu1bXNcdcrmSkRCFNiIQFtM/IBz47ghDaec4+XiHlrYxkzcaN/avw==}
+    engines: {node: '>=20.6.0'}
+    cpu: [x64]
+    os: [win32]
+
+  '@typescript/native-preview@7.0.0-dev.20250816.1':
+    resolution: {integrity: sha512-du/e72VqzVXFQqbKuEc7W+W9pWvIgKg0SwydHxzvzQ6TiccBAP/Ar7FUBEuYkFGQ2rbo7pYLj/zkoUCy08QW5w==}
+    engines: {node: '>=20.6.0'}
+    hasBin: true
 
   '@valibot/to-json-schema@1.0.0':
     resolution: {integrity: sha512-/9crJgPptVsGCL6X+JPDQyaJwkalSZ/52WuF8DiRUxJgcmpNdzYRfZ+gqMEP8W3CTVfuMWPqqvIgfwJ97f9Etw==}
@@ -3932,6 +3982,37 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 8.24.0
       eslint-visitor-keys: 4.2.0
+
+  '@typescript/native-preview-darwin-arm64@7.0.0-dev.20250816.1':
+    optional: true
+
+  '@typescript/native-preview-darwin-x64@7.0.0-dev.20250816.1':
+    optional: true
+
+  '@typescript/native-preview-linux-arm64@7.0.0-dev.20250816.1':
+    optional: true
+
+  '@typescript/native-preview-linux-arm@7.0.0-dev.20250816.1':
+    optional: true
+
+  '@typescript/native-preview-linux-x64@7.0.0-dev.20250816.1':
+    optional: true
+
+  '@typescript/native-preview-win32-arm64@7.0.0-dev.20250816.1':
+    optional: true
+
+  '@typescript/native-preview-win32-x64@7.0.0-dev.20250816.1':
+    optional: true
+
+  '@typescript/native-preview@7.0.0-dev.20250816.1':
+    optionalDependencies:
+      '@typescript/native-preview-darwin-arm64': 7.0.0-dev.20250816.1
+      '@typescript/native-preview-darwin-x64': 7.0.0-dev.20250816.1
+      '@typescript/native-preview-linux-arm': 7.0.0-dev.20250816.1
+      '@typescript/native-preview-linux-arm64': 7.0.0-dev.20250816.1
+      '@typescript/native-preview-linux-x64': 7.0.0-dev.20250816.1
+      '@typescript/native-preview-win32-arm64': 7.0.0-dev.20250816.1
+      '@typescript/native-preview-win32-x64': 7.0.0-dev.20250816.1
 
   '@valibot/to-json-schema@1.0.0(valibot@1.0.0(typescript@5.7.3))':
     dependencies:
